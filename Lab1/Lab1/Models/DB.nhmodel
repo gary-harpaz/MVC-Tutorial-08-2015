@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<model xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=&quot;C:\Users\GARY\Documents\Visual Studio 2012\Projects\MVC Tutorial\Lab1\Lab1\App_Data\LAB1DB.mdf&quot;;Integrated Security=True" pluralizedInDatabase="true" name="" defaultIdentityGenerator="IdentityColumn" xmlns="http://namespaces.mindscape.co.nz/nhmodel">
+  <entities>
+    <entity name="Employee2" tableName="Employee2s">
+      <entityProperties>
+        <entityProperty name="FirstName">
+          <validations>
+            <notNullNotEmptyValidation />
+            <lengthValidation minimumLength="2" maximumLength="20" />
+          </validations>
+        </entityProperty>
+        <entityProperty name="LastName">
+          <validations>
+            <lengthValidation minimumLength="2" maximumLength="20" />
+          </validations>
+        </entityProperty>
+        <entityProperty name="Salary" dataType="Int32">
+          <validations>
+            <minimumValueValidation minimumValue="0" />
+          </validations>
+        </entityProperty>
+      </entityProperties>
+      <identityProperties>
+        <identityProperty name="EmployeeID" />
+      </identityProperties>
+    </entity>
+  </entities>
+</model>

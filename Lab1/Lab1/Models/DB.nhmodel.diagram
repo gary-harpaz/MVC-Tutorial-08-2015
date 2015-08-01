@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<nHibernateModelDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DB">
+  <modelMoniker name="/" />
+  <nestedChildShapes>
+    <entityShape Id="14d8bc70-6ceb-4a83-afd7-5ab7c81830e2" absoluteBounds="1.5, 1.25, 1.5, 1.6879850260416665">
+      <entityMoniker name="//Employee2" />
+      <nestedChildShapes>
+        <elementListCompartment Id="44b7630f-de80-4260-afc6-14ef79d76030" absoluteBounds="1.5149999999999997, 1.56, 1.4700000000000002, 0.44169108072916663" name="Identity" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5c609514-1026-4efa-8f97-d9dbd9e2a5d5" absoluteBounds="1.515, 2.0116910807291664, 1.4700000000000002, 0.8262939453125" name="Properties" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </entityShape>
+  </nestedChildShapes>
+</nHibernateModelDiagram>

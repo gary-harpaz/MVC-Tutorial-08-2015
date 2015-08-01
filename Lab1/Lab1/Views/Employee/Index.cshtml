@@ -1,0 +1,66 @@
+﻿@using Lab1.ViewModels
+@using Lab1.Models
+@model EmployeesViewModel
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyView</title>
+</head>
+<body>
+    <div>
+        <a href="/Employee/AddNew">Add New</a>
+        <br />
+        
+        @{
+            //Lab1.Models.Employee emp = (Lab1.Models.Employee)ViewData["Employee"];
+            //      Lab1.Models.Employee emp = (Lab1.Models.Employee)ViewBag.Employee;
+            //     Lab1.Models.Employee emp = null;
+            var emp = Model.Employees.FirstOrDefault();
+            if (emp==null)
+            {
+                emp = new EmployeeViewModel(new Employee());
+            }
+            
+                                          
+        }
+
+         <b>Employee Details: </b>
+        <br />
+
+        Employee Name : @emp.EmployeeName
+        <br />
+        <span style="background-color:@emp.SalaryColor">Employee Salary: @emp.Salary
+        </span>
+
+        <br />
+
+        <table>
+            <tbody>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Salary
+                    </th>
+                </tr>
+                @foreach (var item in Model.Employees)
+                {
+                    <tr>
+                        <td>@item.EmployeeName</td>
+                        <td style="background-color:@item.SalaryColor">@item.Salary</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+      
+    </div>
+</body>
+</html>

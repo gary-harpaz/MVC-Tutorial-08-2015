@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
+using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
 using Lab1.Models;
 using NHibernate;
 using NHibernate.Linq;
@@ -23,17 +26,17 @@ namespace Lab1
             
         }
 
-        public IQueryable<Employee2> Employees
+        public IQueryable<Employee3> Employees
         {
             get
             {
-                return _session.Query<Employee2>();
+                return _session.Query<Employee3>();
             }
         }
 
         private static ISessionFactory _sessionFactory;
 
-        public static void Init()
+        public static void InitOld()
         {
             var configuration = ConfigurationHelper.CreateConfiguration();
             _sessionFactory = configuration.BuildSessionFactory();       
@@ -41,6 +44,23 @@ namespace Lab1
             NHibernate.Validator.Cfg.Environment.SharedEngineProvider=new NHibernate.Validator.Event.NHibernateSharedEngineProvider();            
             NHibernate.Validator.Engine.ValidatorEngine validatorEngine = NHibernate.Validator.Cfg.Environment.SharedEngineProvider.GetEngine();
  //           validatorEngine.Configure();
+
+        }
+
+        public static void Init()
+        {
+           
+            _sessionFactory = Fluently.Configure()
+                .Database(MySQLConfiguration.Standard.ConnectionString(csb=>
+                    {
+                        csb.FromConnectionStringWithKey("dbConnection");
+                    }))
+                .Mappings(x => x.FluentMappings.AddFromAssembly(typeof(Employee3Map).Assembly))
+           .BuildSessionFactory();
+
+            NHibernate.Validator.Cfg.Environment.SharedEngineProvider = new NHibernate.Validator.Event.NHibernateSharedEngineProvider();
+            NHibernate.Validator.Engine.ValidatorEngine validatorEngine = NHibernate.Validator.Cfg.Environment.SharedEngineProvider.GetEngine();
+            //           validatorEngine.Configure();
 
         }
 

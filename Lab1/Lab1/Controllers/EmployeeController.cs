@@ -50,7 +50,7 @@ namespace Lab1.Controllers
             //employess.Add(emp);
 
 
-            List<Employee2> employess = new List<Employee2>();
+            List<Employee3> employess = new List<Employee3>();
 
             using (var dc = new NDBContext())
             {
@@ -75,7 +75,7 @@ namespace Lab1.Controllers
             return View("CreateEmployee", new CreateEmployeeViewModel());
         }
 
-        public ActionResult SaveEmployee(Employee2 e, string BtnSubmit)
+        public ActionResult SaveEmployee(Employee3 e, string BtnSubmit)
         {
           
             switch (BtnSubmit)

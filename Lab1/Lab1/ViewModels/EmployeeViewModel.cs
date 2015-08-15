@@ -34,6 +34,19 @@ namespace Lab1.ViewModels
                 SalaryColor = "green";
             }
         }
+        public EmployeeViewModel(Employee3 emp)
+        {
+            EmployeeName = emp.FirstName + " " + emp.LastName;
+            Salary = emp.Salary.ToString("C");
+            if (emp.Salary > 15000)
+            {
+                SalaryColor = "yellow";
+            }
+            else
+            {
+                SalaryColor = "green";
+            }
+        }
         public string EmployeeName { get; set; }
         public string Salary { get; set; }
         public string SalaryColor { get; set; }
